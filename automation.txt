@@ -1,0 +1,19 @@
+# Notes -
+
+
+# Library :
+# Call all the helper function/ Keywords
+
+# Scripts file:
+# One file == one test suite
+# One function or Test case is a test scenario
+
+# For xpaths - Page Object Model
+# One file per page
+
+# Library: 
+# Should have bifurcation at functional level
+# Xpaths/Data:
+# Bifurcation at page level
+# Scripts:
+# At scenario level
