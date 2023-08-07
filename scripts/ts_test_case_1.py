@@ -14,7 +14,7 @@ from scripts.search_ts_with_invalied_tech import *
 
 def edit_time_sheet_for_current_date(driver):
     click_element(driver,nav_bar_ts)
-    time.sleep(10)
+    time.sleep(20)
     from_filter_result=filter_from_date(driver)
     from_to_result=filter_to_date(driver)
     drop_down_result=drop_down(driver)
@@ -27,7 +27,6 @@ def edit_time_sheet_for_current_date(driver):
     result_date_selected = wait_until_element_is_visible(driver,ts_date_row)
     print(result_date_selected)
     time.sleep(10)
-    # hover_result = hover_over_on_ts_entry(driver)
     edit_result = edit_ts_entry(driver)
     print(edit_result)
 
