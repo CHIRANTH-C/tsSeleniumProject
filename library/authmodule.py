@@ -16,15 +16,15 @@ def login(url):
     username = data[0]['username']
     password = data[0]['password']
     print(username , ":",  password)
-    time.sleep(20)
-    wait_until_element_is_visible(driver, txt_welcome_note)
-    enter_text_in_element(driver,txt_box_env,"raman")
-    enter_text_in_element(driver,txt_box_org,"tsqa1")
-    click_element(driver,btn_element)
+    time.sleep(10)
+    # wait_until_element_is_visible(driver, txt_welcome_note)
+    # enter_text_in_element(driver,txt_box_env,"raman")
+    # enter_text_in_element(driver,txt_box_org,"tsqa1")
+    # click_element(driver,btn_element)
     enter_text_in_element(driver,txt_box_username,username)
     enter_text_in_element(driver,txt_box_password,password)
     click_element(driver,btn_element)
-    time.sleep(20)
+    time.sleep(10)
     message = wait_until_element_is_visible(driver, nav_bar_ts)
     return driver
 
