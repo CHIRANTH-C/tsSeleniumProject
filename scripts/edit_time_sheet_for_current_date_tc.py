@@ -2,7 +2,6 @@
 ## Edit time sheet and add all type of activities
 import sys
 import os
-# sys.path.insert(0, '/Users/chiranth.c/Documents/tsSeleniumProject/constants/xpath')
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 from library.authmodule import login
 from library.search_filter import searchts
@@ -12,9 +11,9 @@ from constants.xpath.timesheet import *
 from constants.xpath.solution import *
 from scripts.search_ts_with_invalied_tech import *
 
-def edit_time_sheet_for_current_date(driver):
+def edit_time_sheet_for_current_date(driver, tech_name):
     click_element(driver,nav_bar_ts)
-    time.sleep(20)
+    time.sleep(10)
     from_filter_result=filter_from_date(driver)
     from_to_result=filter_to_date(driver)
     drop_down_result=drop_down(driver)
@@ -22,15 +21,16 @@ def edit_time_sheet_for_current_date(driver):
     print(from_to_result)
     print(drop_down_result)
     
-    result_name_selected = wait_until_element_is_visible(driver,ts_name_row)
+    result_name_selected = wait_until_element_is_visible(driver,create_new_dynamic_xpath(ts_date_row , tech_name))
     print(result_name_selected)
-    result_date_selected = wait_until_element_is_visible(driver,ts_date_row)
+    result_date_selected = wait_until_element_is_visible(driver,create_new_dynamic_xpath(ts_date_row , tech_name))
     print(result_date_selected)
     time.sleep(10)
-    edit_result = edit_ts_entry(driver)
+    
+    edit_result = edit_ts_entry(driver , tech_name)
     print(edit_result)
 
-    add_activity_result=add_activity(driver)
+    add_activity_result=add_activity(driver, "01", "00","02","00")
     print(add_activity_result)
 
     if(add_activity_result=="Element found: //div[@class='tabledata styles_default__3REJC' and contains(text(),'Overtime')]."):

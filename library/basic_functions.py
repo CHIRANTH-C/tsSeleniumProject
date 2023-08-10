@@ -6,6 +6,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.common.alert import Alert
 
 
 def open_browser(url, incognito=False, headless=False):
@@ -38,6 +39,16 @@ def hover_over_on_element(driver, xpath):
     element = wait.until(EC.element_to_be_clickable((By.XPATH, xpath)))
     actions = ActionChains(driver)
     actions.move_to_element(element).perform()
+
+def handle_alert(driver , accept=True):
+    alert = Alert(driver)
+    txt_message = alert.text
+    if accept:
+        alert.accept()
+    else:
+        alert.dismiss()
+    
+    return txt_message
 
 #### ALL EXCEPTION HANDELING GOES HERE ####
 

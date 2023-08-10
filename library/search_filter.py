@@ -6,7 +6,7 @@ sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 from library.basic_functions import *
 from constants.xpath.solution import *
 from constants.xpath.timesheet import *
-from constants.xpath.xpath_dynamic import create_dynamic_xpath , create_dynamic_xpath_2
+from constants.xpath.xpath_dynamic import create_new_dynamic_xpath
 
 def searchts(driver):
     wait_until_element_is_visible(driver,search_n)
@@ -16,12 +16,12 @@ def searchts(driver):
 def filter_from_date(driver):
     wait_until_element_is_visible(driver,from_date)
     click_element(driver,from_date)
-    wait_until_element_is_visible(driver,create_dynamic_xpath_2(month_drop_down_selection_2 , "August" , 1))
-    click_element(driver,create_dynamic_xpath_2(month_drop_down_selection_2 , "August" ,1))
-    click_element(driver,create_dynamic_xpath(txt_input_year_2,1))
-    enter_text_in_element(driver,create_dynamic_xpath(txt_input_year_2,1),year)
-    wait_until_element_is_visible(driver,create_dynamic_xpath_2(select_date_2 , "7" , 1))
-    click_element(driver,create_dynamic_xpath_2(select_date_2 , "7" , 1))
+    wait_until_element_is_visible(driver,create_new_dynamic_xpath(month_drop_down_selection_2 , "August" , 1))
+    click_element(driver,create_new_dynamic_xpath(month_drop_down_selection_2 , "August" ,1))
+    click_element(driver,create_new_dynamic_xpath(txt_input_year_2,1))
+    enter_text_in_element(driver,create_new_dynamic_xpath(txt_input_year_2,1),year)
+    wait_until_element_is_visible(driver,create_new_dynamic_xpath(select_date_2 , "10" , 1))
+    click_element(driver,create_new_dynamic_xpath(select_date_2 , "10" , 1))
 
 # def filter_from_date(driver):
 #     wait_until_element_is_visible(driver,from_date)
@@ -30,19 +30,19 @@ def filter_from_date(driver):
 #     click_element(driver,create_dynamic_xpath(month_drop_down_selection, "August"))
 #     click_element(driver,txt_input_year)
 #     enter_text_in_element(driver,txt_input_year,"2023")
-#     wait_until_element_is_visible(driver,create_dynamic_xpath(select_date, "7"))
-#     click_element(driver,create_dynamic_xpath(select_date, "7"))
+#     wait_until_element_is_visible(driver,create_dynamic_xpath(select_date, "10"))
+#     click_element(driver,create_dynamic_xpath(select_date, "10"))
 
 
 def filter_to_date(driver):
     wait_until_element_is_visible(driver,to_date)
     click_element(driver,to_date)
-    wait_until_element_is_visible(driver,create_dynamic_xpath_2(month_drop_down_selection_2 , "August" , 2))
-    click_element(driver,create_dynamic_xpath_2(month_drop_down_selection_2 , "August" , 2))
-    click_element(driver,create_dynamic_xpath(txt_input_year_2,2))
-    enter_text_in_element(driver,create_dynamic_xpath(txt_input_year_2,2),year)
-    wait_until_element_is_visible(driver,create_dynamic_xpath_2(select_date_2 , "7" , 2))
-    click_element(driver,create_dynamic_xpath_2(select_date_2 , "7" , 2))
+    wait_until_element_is_visible(driver,create_new_dynamic_xpath(month_drop_down_selection_2 , "August" , 2))
+    click_element(driver,create_new_dynamic_xpath(month_drop_down_selection_2 , "August" , 2))
+    click_element(driver,create_new_dynamic_xpath(txt_input_year_2,2))
+    enter_text_in_element(driver,create_new_dynamic_xpath(txt_input_year_2,2),year)
+    wait_until_element_is_visible(driver,create_new_dynamic_xpath(select_date_2 , "10" , 2))
+    click_element(driver,create_new_dynamic_xpath(select_date_2 , "10" , 2))
 
 
 def drop_down(driver):
